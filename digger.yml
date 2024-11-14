@@ -20,3 +20,9 @@ workflows:
       commands:
         - name: TF_VAR_AWS_BUCKET
           value_from: AWS_BUCKET
+    plan:
+      steps:
+        - run: "echo 'bucket = \"'$AWS_S3_BUCKET'\"' > backend.hcl"
+        - init:
+            extra_args: [ "-backend-config=backend.hcl" ]
+        - plan
