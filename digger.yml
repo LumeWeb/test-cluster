@@ -15,3 +15,8 @@ workflows:
           value: AWS_ENDPOINT_URL
         - name: AWS_S3_BUCKET
           value: AWS_BUCKET
+        - name: AWS_REGION
+          value: us-east-1
+      commands:
+        - name: TF_VAR_AWS_BUCKET
+          value_from: AWS_BUCKET
