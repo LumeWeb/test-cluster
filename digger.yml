@@ -2,7 +2,7 @@ projects:
   - name: test-cluster
     dir: environments/test
     workflow: test-env
-opentofu: true
+    opentofu: true
 workflows:
   test-env:
     env_vars:
