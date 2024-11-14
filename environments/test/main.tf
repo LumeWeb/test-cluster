@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    random = {
-      source  = "hashicorp/random"
-      version = "~> 3.0"
-    }
-  }
-}
-
 module "renterd_cluster" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/compute/renterd-cluster?ref=develop"
 
