@@ -1,4 +1,17 @@
 projects:
   - name: test-cluster
     dir: environments/test
+    workflow: test-env
 opentofu: true
+workflows:
+  test-env:
+    env_vars:
+      state:
+        - name: AWS_ACCESS_KEY_ID
+          value_from: AWS_ACCESS_KEY_ID
+        - name: AWS_SECRET_ACCESS_KEY
+          value_from: AWS_SECRET_ACCESS_KEY
+        - name: AWS_S3_ENDPOINT
+          value: AWS_ENDPOINT_URL
+        - name: AWS_S3_BUCKET
+          value: AWS_BUCKET
