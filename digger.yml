@@ -11,7 +11,7 @@ workflows:
           value_from: AWS_ACCESS_KEY_ID
         - name: AWS_SECRET_ACCESS_KEY
           value_from: AWS_SECRET_ACCESS_KEY
-        - name: AWS_S3_ENDPOINT
+        - name: AWS_ENDPOINT_URL_S3
           value: AWS_ENDPOINT_URL
         - name: AWS_S3_BUCKET
           value: AWS_BUCKET
