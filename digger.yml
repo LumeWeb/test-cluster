@@ -14,4 +14,4 @@ workflows:
         - name: AWS_ENDPOINT_URL_S3
           value_from: AWS_ENDPOINT_URL
         - name: AWS_REGION
-          value: us-east-1
+          value: AWS_REGION
