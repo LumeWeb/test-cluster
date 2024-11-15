@@ -13,5 +13,3 @@ workflows:
           value_from: AWS_SECRET_ACCESS_KEY
         - name: AWS_ENDPOINT_URL_S3
           value_from: AWS_ENDPOINT_URL
-        - name: AWS_REGION
-          value: AWS_REGION
