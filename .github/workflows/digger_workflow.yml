@@ -23,6 +23,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: lumeweb/akash-action@master
+        with:
+          mnemonic: ${{ secrets.AKASH_WALLET_SEED }}
+          cert-content: ${{ secrets.AKASH_CERT_CONTENT }}
+          cert-id: ${{ secrets.AKASH_CERT_ID }}
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
       - uses: LumeWeb/digger@lumeweb
