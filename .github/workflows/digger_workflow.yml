@@ -30,6 +30,11 @@ jobs:
           cert-id: ${{ secrets.AKASH_CERT_ID }}
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
+      - name: Process Akash Providers
+        id: providers
+        run: |
+          PROVIDERS=$(yq eval '.providers[].address' config/akash-providers.yaml | jq -R -s -c 'split("\n")[:-1]')
+          echo "provider_list=${PROVIDERS}" >> $GITHUB_OUTPUT
       - uses: LumeWeb/digger-action@v0.1.0
         with:
           digger-spec: ${{ inputs.spec }}
@@ -48,3 +53,4 @@ jobs:
           AWS_REGION: 'us-east-1'
           TF_VAR_RENTERD_SEED: ${{ secrets.RENTERD_SEED }}
           TF_VAR_RENTERD_PASSWORD: ${{ secrets.RENTERD_PASSWORD }}
+          TF_VAR_akash_providers: ${{ steps.providers.outputs.provider_list }}
