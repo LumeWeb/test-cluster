@@ -1,0 +1,5 @@
+providers:
+  - address: "akash175llqyjvxfle9qwt740vm46772dzaznpzgm576"
+    notes: "provider.akashprovid.com"
+  - address: "akash15ksejj7g4su7ljufsg0a8eglvkje94z8qsh68a"
+    notes: "provider.akash-palmito.org"

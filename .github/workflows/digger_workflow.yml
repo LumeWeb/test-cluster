@@ -23,19 +23,34 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: lumeweb/akash-action@v0.1.0
+        with:
+          mnemonic: ${{ secrets.AKASH_WALLET_SEED }}
+          cert-content: ${{ secrets.AKASH_CERT_CONTENT }}
+          cert-id: ${{ secrets.AKASH_CERT_ID }}
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
-      - uses: LumeWeb/digger@lumeweb
+      - name: Process Akash Providers
+        id: providers
+        run: |
+          PROVIDERS=$(yq eval '.providers[].address' config/akash-providers.yaml | jq -R -s -c 'split("\n")[:-1]')
+          echo "provider_list=${PROVIDERS}" >> $GITHUB_OUTPUT
+      - uses: LumeWeb/digger-action@v0.1.0
         with:
           digger-spec: ${{ inputs.spec }}
-          setup-aws: true
-          setup-opentofu: true
           aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-endpoint-url: '${{ secrets.AWS_ENDPOINT_URL }}'
           aws-region: 'us-east-1'
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          upload-plan-destination: 'aws'
-          upload-plan-destination-s3-bucket: '${{ secrets.AWS_BUCKET }}'
+          aws-bucket: '${{ secrets.AWS_BUCKET }}'
+          digger-version: 'v0.6.62'
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ENDPOINT_URL: ${{ secrets.AWS_ENDPOINT_URL }}
+          AWS_REGION: 'us-east-1'
+          TF_VAR_renterd_seed: ${{ secrets.RENTERD_SEED }}
+          TF_VAR_renterd_password: ${{ secrets.RENTERD_PASSWORD }}
+          TF_VAR_allowed_providers: ${{ steps.providers.outputs.provider_list }}
