@@ -46,3 +46,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_ENDPOINT_URL: ${{ secrets.AWS_ENDPOINT_URL }}
           AWS_REGION: 'us-east-1'
+          TF_VAR_RENTERD_SEED: ${{ secrets.RENTERD_SEED }}
+          TF_VAR_RENTERD_PASSWD: ${{ secrets.RENTERD_PASSWD }}
