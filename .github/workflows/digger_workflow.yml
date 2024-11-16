@@ -38,7 +38,7 @@ jobs:
           aws-endpoint-url: '${{ secrets.AWS_ENDPOINT_URL }}'
           aws-region: 'us-east-1'
           aws-bucket: '${{ secrets.AWS_BUCKET }}'
-          digger-version: '0.6.62'
+          digger-version: 'v0.6.62'
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
