@@ -53,4 +53,4 @@ jobs:
           AWS_REGION: 'us-east-1'
           TF_VAR_RENTERD_SEED: ${{ secrets.RENTERD_SEED }}
           TF_VAR_RENTERD_PASSWORD: ${{ secrets.RENTERD_PASSWORD }}
-          TF_VAR_akash_providers: ${{ steps.providers.outputs.provider_list }}
+          TF_VAR_allowed_providers: ${{ steps.providers.outputs.provider_list }}
