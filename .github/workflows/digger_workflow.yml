@@ -30,7 +30,7 @@ jobs:
           cert-id: ${{ secrets.AKASH_CERT_ID }}
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
-      - uses: LumeWeb/digger-action@master
+      - uses: LumeWeb/digger-action@v0.1.0
         with:
           digger-spec: ${{ inputs.spec }}
           aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
