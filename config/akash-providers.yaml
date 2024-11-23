@@ -1,5 +1,3 @@
 providers:
-  - address: "akash175llqyjvxfle9qwt740vm46772dzaznpzgm576"
-    notes: "provider.akashprovid.com"
-  - address: "akash15ksejj7g4su7ljufsg0a8eglvkje94z8qsh68a"
-    notes: "provider.akash-palmito.org"
+  - address: "akash1jukxttwauvnty679l720ey87ya5sgjv4j9tstn"
+    notes: "provider.ny-01.node.infra.lumeweb.com"

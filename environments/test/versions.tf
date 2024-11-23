@@ -9,3 +9,16 @@ terraform {
     skip_s3_checksum            = true
   }
 }
+
+terraform {
+  required_providers {
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.0"
+    }
+  }
+}
+
+provider "cloudflare" {
+  api_token = "GkwcUCP1m9pWkK3GsxNhNig2nbtm5_WAuW6DZ1hL"
+}
