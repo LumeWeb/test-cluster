@@ -28,8 +28,3 @@ variable "renterd_worker_count" {
   default     = 1
 }
 
-variable "allowed_providers" {
-  description = "List of allowed providers for renterd cluster"
-  type        = list(string)
-}
-
