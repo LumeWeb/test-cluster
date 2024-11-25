@@ -32,3 +32,4 @@ variable "allowed_providers" {
   description = "List of allowed providers for renterd cluster"
   type        = list(string)
 }
+
