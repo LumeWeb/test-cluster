@@ -48,9 +48,9 @@ output "autopilot_port" {
   value       = module.renterd_cluster.autopilot_port
 }*/
 
-output "etcd_id" {
+output "etcd_deployment_id" {
   description = "The ID of the etcd deployment"
-  value       = module.etcd.id
+  value       = module.etcd.dseq
 }
 
 output "etcd_port" {
@@ -62,7 +62,7 @@ output "etcd_provider_host" {
   description = "Provider host for the etcd deployment"
   value       = module.etcd.provider_host
 }
-
+/*
 output "mysql_master_endpoint" {
   description = "Endpoint of the MySQL master instance"
   value       = module.mysql_cluster.master_endpoint
@@ -75,11 +75,21 @@ output "mysql_replica_endpoints" {
 
 output "proxysql_endpoint" {
   description = "Endpoint of the ProxySQL instance"
-  value       = module.proxysql.service_endpoints["mysql"]
+  value       = module.proxysql.endpoint
 }
 
 output "mysql_cluster_size" {
   description = "Total number of MySQL instances in the cluster"
   value       = module.mysql_cluster.cluster_size
 }
+*/
 
+output "proxysql_endpoint" {
+  description = "Endpoint of the ProxySQL instance"
+  value       = module.proxysql.endpoint
+}
+
+output "proxysql_id" {
+  description = "ID of the ProxySQL instance"
+  value       = module.proxysql.dseq
+}

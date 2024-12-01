@@ -5,7 +5,7 @@ locals {
   mysql_root_password = "test-password-123"
   mysql_repl_password = "test-password-456" 
   mysql_admin_password = "test-password-789"
-  etcd_password = local.etcd_password
+  etcd_password = "test-password-abc"
 }
 /*
 module "renterd_cluster" {
@@ -71,7 +71,7 @@ module "etcd" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/coordination/etcd?ref=develop"
   environment = "test"
 
-  root_password = sensitive(coalesce( "test-password"))
+  root_password = sensitive(local.etcd_password)
 
   allowed_providers = var.allowed_providers
   placement_attributes = {
@@ -83,13 +83,13 @@ module "mysql_cluster" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/mysql-cluster?ref=develop"
 
   cluster_name = "test-cluster"
-  replica_count = 2
+  replica_count = 0
 
   root_password = sensitive(local.mysql_root_password)
   repl_password = sensitive(local.mysql_repl_password)
 
-  etcd_endpoints = ["${module.etcd.provider_host}:${module.etcd.port}"]
-  etcd_password = "test-password"
+  etc_endpoints = ["${module.etcd.provider_host}:${module.etcd.port}"]
+  etc_password = sensitive(local.etcd_password)
 
   metrics_enabled = true
 
@@ -107,11 +107,13 @@ module "mysql_cluster" {
 module "proxysql" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/proxysql?ref=develop"
 
-  name = "test-proxy"
   admin_password = sensitive(local.mysql_admin_password)
 
   etcd_endpoints = ["${module.etcd.provider_host}:${module.etcd.port}"]
   etcd_password = local.etcd_password
 
   allowed_providers = var.allowed_providers
+  tags = {
+    environment = "test"
+  }
 }
