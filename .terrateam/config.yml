@@ -11,17 +11,17 @@ dirs:
 
 
 hooks:
-  apply:
-    post:
-      - type: env
-        method: source
-        cmd: [ '${TERRATEAM_ROOT}/scripts/export_public_outputs.sh' ]
   all:
     pre:
       - type: run
         cmd: ['$TERRATEAM_ROOT/scripts/setup_akash.sh']
       - type: run
         cmd: ['$TERRATEAM_ROOT/scripts/setup_gpg.sh']
+  apply:
+    post:
+      - type: env
+        method: source
+        cmd: [ '${TERRATEAM_ROOT}/scripts/export_public_outputs.sh' ]
 workflows:
   - tag_query: ""
     plan:
