@@ -35,6 +35,7 @@ GPG_FINGERPRINT=$(gpg --list-secret-keys --with-colons | grep ^fpr | tail -n1 | 
 echo "$GPG_FINGERPRINT:6:" | gpg --import-ownertrust
 
 # Get key ID and initialize pass
+sudo apt-get update && sudo apt-get install -y pass
 GPG_KEY_ID=$(gpg --list-secret-keys --keyid-format LONG 2>/dev/null | grep sec | tail -n1 | awk '{print $2}' | cut -d'/' -f2)
 pass init "$GPG_KEY_ID"
 
