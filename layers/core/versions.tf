@@ -14,18 +14,13 @@ terraform {
       source  = "cloudflare/cloudflare"
       version = "~> 4.0"
     }
-  }
-}
-
-provider "cloudflare" {
-  api_token = var.cloudflare_api_token
-}
-
-terraform {
-  required_providers {
     akash = {
       source = "registry.terraform.io/lumeweb/akash"
       version = "0.1.1"
     }
   }
+}
+
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
 }
