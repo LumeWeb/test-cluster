@@ -42,7 +42,7 @@ jobs:
         id: providers
         run: |
           PROVIDERS=$(yq eval '.providers[].address' config/akash-providers.yaml | jq -R -s -c 'split("\n")[:-1]')
-          echo "provider_list=${PROVIDERS}" >> $GITHUB_OUTPUT
+          echo "TF_ALLOWED_PROVIDERS=${PROVIDERS}" >> $GITHUB_OUTPUT
       - name: Run Terrateam Action
         id: terrateam
         uses: terrateamio/action@v1
