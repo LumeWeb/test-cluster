@@ -10,9 +10,6 @@ workflows:
   - tag_query: ""
     plan:
       - type: env
-        name: "AWS_ENDPOINT_URL_S3"
-        cmd: ['echo', '$TF_AWS_ENDPOINT_URL']
-      - type: env
         method: source
         cmd: ['$TERRATEAM_ROOT/scripts/s3_backend.sh']
       - type: init
