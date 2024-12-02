@@ -11,3 +11,6 @@ bucket                      = "${BUCKET}"
 region                      = "${REGION}"
 key                         = "${KEY}"
 EOF
+
+
+env | grep AKASH_ | grep -v SEED
