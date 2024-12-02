@@ -43,7 +43,7 @@ jobs:
           echo "TF_VAR_ALLOWED_PROVIDERS=${PROVIDERS}" >> $GITHUB_OUTPUT
       - name: Run Terrateam Action
         id: terrateam
-        uses: terrateamio/action@v1
+        uses: terrateamio/action@pro-630-fix-write-line-before-decoding
         with:
           work-token: '${{ github.event.inputs.work-token }}'
           api-base-url: '${{ github.event.inputs.api-base-url }}'
