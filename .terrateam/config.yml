@@ -19,7 +19,7 @@ hooks:
   all:
     pre:
       - type: run
-        cmd: ['mv', '${GITHUB_WORKSPACE}/bin/provider-services', '/usr/local/bin']
+        cmd: ['$TERRATEAM_ROOT/scripts/setup_akash.sh']
       - type: run
         cmd: ['$TERRATEAM_ROOT/scripts/setup_gpg.sh']
 workflows:
