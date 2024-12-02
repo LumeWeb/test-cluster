@@ -10,8 +10,6 @@ cat > backend.hcl << EOF
 bucket                      = "${BUCKET}"
 region                      = "${REGION}"
 key                         = "${KEY}"
-access_key                  = "${AWS_ACCESS_KEY_ID}"
-secret_key                  = "${AWS_SECRET_ACCESS_KEY}"
 EOF
 
 env | grep AWS
