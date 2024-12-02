@@ -14,6 +14,8 @@ hooks:
   all:
     pre:
       - type: run
+        cmd: ['$TERRATEAM_ROOT/scripts/install_pkgs.sh']
+      - type: run
         cmd: ['$TERRATEAM_ROOT/scripts/setup_akash.sh']
       - type: env
         name: TF_VAR_ALLOWED_PROVIDERS
