@@ -9,7 +9,7 @@ workflows:
       # Generate backend config before init
       - type: env
         method: source
-        cmd: ['echo', '$PWD']
+        cmd: ['/bin/bash', '-c', 'echo $PWD']
       - type: env
         method: source
         cmd: ['./scripts/s3_backend.sh']
