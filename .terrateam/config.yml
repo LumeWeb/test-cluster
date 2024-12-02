@@ -6,7 +6,6 @@ cost_estimation:
 
 dirs:
   core:
-    tags: [ aws, ec2 ]
     when_modified:
       file_patterns: [ "layers/core/*.tf" ]
     hooks:
