@@ -1,0 +1,23 @@
+dirs:
+  modules:
+    tags: [ aws, ec2 ]
+    when_modified:
+      file_patterns: [ "modules/*.tf" ]
+workflows:
+  - tag_query: ""
+    plan:
+      # Generate backend config before init
+      - type: env
+        method: source
+        cmd: ['./scripts/s3_backend.sh']
+      - type: init
+        extra_args: ['-backend-config=backend.hcl']
+      - type: plan
+
+    apply:
+      - type: env
+        method: source
+        cmd: ['./scripts/s3_backend.sh']
+      - type: init
+        extra_args: ['-backend-config=backend.hcl']
+      - type: apply
