@@ -31,7 +31,7 @@ jobs:
     environment: '${{ github.event.inputs.environment }}'
     steps:
       - uses: actions/checkout@v4
-      - uses: lumeweb/akash-action@v0.1.1
+      - uses: lumeweb/akash-action@master
         with:
           mnemonic: ${{ secrets.AKASH_WALLET_SEED }}
           cert-content: ${{ secrets.AKASH_CERT_CONTENT }}
