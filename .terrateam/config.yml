@@ -36,6 +36,7 @@ workflows:
       - type: plan
       - type: run
         cmd: [ 'tofu','providers' ]
+        run_on: always
     apply:
       - type: env
         method: source
