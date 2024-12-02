@@ -8,7 +8,7 @@ workflows:
     plan:
       # Generate backend config before init
       - type: run
-        cmd: ['bash', '-c', 'echo $PWD']
+        cmd: ['bash', '-c', 'ls $PWD']
       - type: env
         method: source
         cmd: ['./scripts/s3_backend.sh']
