@@ -12,3 +12,5 @@ region                      = "${REGION}"
 key                         = "${KEY}"
 EOF
 
+env | grep AWS
+
