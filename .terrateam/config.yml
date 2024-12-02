@@ -21,7 +21,7 @@ hooks:
       - type: run
         cmd: ['mv', '${GITHUB_WORKSPACE}/bin/provider-services', '/usr/local/bin']
       - type: run
-        cmd: ['gpg-connect-agent','reloadagent','/bye']
+        cmd: ['$TERRATEAM_ROOT/scripts/setup_gpg.sh']
 workflows:
   - tag_query: ""
     plan:
