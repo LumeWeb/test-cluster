@@ -52,21 +52,12 @@ mkdir -p ~/.akash
 chmod 700 ~/.akash
 
 # Setup Certificate
-echo "$CERT_CONTENT" > "$HOME/.akash/$CERT_ID.pem"
-chmod 600 "$HOME/.akash/$CERT_ID.pem"
+echo "$AKASH_CERT_CONTENT" > "$HOME/.akash/$AKASH_CERT_ID.pem"
+chmod 600 "$HOME/.akash/$AKASH_CERT_ID.pem"
 
 # Recover Akash wallet
 WALLET_OUTPUT=$(echo "$AKASH_WALLET_SEED" | provider-services keys add "$WALLET_NAME" --recover --output json)
 AKASH_ADDRESS=$(echo "$WALLET_OUTPUT" | jq -r '.address')
 
-# Export variables for subsequent steps
-{
-  echo "AKASH_GPG_FINGERPRINT=$GPG_FINGERPRINT"
-  echo "AKASH_GPG_KEY_ID=$GPG_KEY_ID"
-  echo "AKASH_ADDRESS=$AKASH_ADDRESS"
-} >> /container.env
-
 echo "✓ Container environment setup complete"
-echo "✓ GPG Fingerprint: $GPG_FINGERPRINT"
-echo "✓ GPG Key ID: $GPG_KEY_ID"
-echo "✓ Akash Address: $AKASH_ADDRESS"
+
