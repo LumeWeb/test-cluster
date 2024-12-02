@@ -7,6 +7,10 @@ set -e
 # CERT_ID - Certificate ID
 # CERT_CONTENT - Certificate content
 
+# Install Akash provider services
+curl -sfL https://raw.githubusercontent.com/akash-network/provider/main/install.sh | bash
+cp ./bin/provider-services /usr/local/bin
+
 # Initialize GPG
 mkdir -p ~/.gnupg
 chmod 700 ~/.gnupg
