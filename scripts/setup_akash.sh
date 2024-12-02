@@ -61,3 +61,4 @@ AKASH_ADDRESS=$(echo "$WALLET_OUTPUT" | jq -r '.address')
 
 echo "✓ Container environment setup complete"
 
+echo "ALLOWED PROVIDERS $TF_VAR_ALLOWED_PROVIDERS"
