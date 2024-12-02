@@ -3,9 +3,9 @@ set -e
 
 # Environment variables required:
 # WALLET_NAME - Name of the Akash wallet
-# MNEMONIC - Mnemonic for wallet recovery
-# CERT_ID - Certificate ID
-# CERT_CONTENT - Certificate content
+# AKASH_WALLET_SEED - Mnemonic for wallet recovery
+# AKASH_CERT_ID - Certificate ID
+# AKASH_CERT_CONTENT - Certificate content
 
 # Install Akash provider services
 curl -sfL https://raw.githubusercontent.com/akash-network/provider/main/install.sh | bash
