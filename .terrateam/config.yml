@@ -17,7 +17,7 @@ workflows:
     apply:
       - type: env
         method: source
-        cmd: ['./scripts/s3_backend.sh']
+        cmd: ['$TERRATEAM_ROOT/scripts/s3_backend.sh']
       - type: init
         extra_args: ['-backend-config=backend.hcl']
       - type: apply

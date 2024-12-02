@@ -2,7 +2,7 @@
 
 # Access environment variables/secrets
 BUCKET="${AWS_BUCKET}"
-REGION="${AWS_REGION}"
+REGION="us-east-1"
 KEY="test/terraform.tfstate"
 
 # Generate backend config file
