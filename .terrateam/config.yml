@@ -15,6 +15,9 @@ hooks:
     pre:
       - type: run
         cmd: ['$TERRATEAM_ROOT/scripts/setup_akash.sh']
+      - type: env
+        name: TF_VAR_ALLOWED_PROVIDERS
+        cmd: [ '$TERRATEAM_ROOT/scripts/akash_providers.sh' ]
   apply:
     post:
       - type: env

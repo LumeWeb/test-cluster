@@ -34,15 +34,6 @@ jobs:
           mnemonic: ${{ secrets.AKASH_WALLET_SEED }}
           cert-content: ${{ secrets.AKASH_CERT_CONTENT }}
           cert-id: ${{ secrets.AKASH_CERT_ID }}
-      - name: Process Akash Providers
-        id: providers
-        run: |
-          PROVIDERS=$(yq eval '.providers[].address' config/akash-providers.yaml | jq -R -s -c 'split("\n")[:-1]')
-          echo "TF_VAR_ALLOWED_PROVIDERS=${PROVIDERS}" >> $GITHUB_OUTPUT
-          # Export Akash values as environment variables for Terraform
-          echo "TF_VAR_AKASH_GPG_FINGERPRINT=${{ steps.akash-setup.outputs.gpg-fingerprint }}" >> $GITHUB_OUTPUT
-          echo "TF_VAR_AKASH_GPG_KEY_ID=${{ steps.akash-setup.outputs.gpg-key-id }}" >> $GITHUB_OUTPUT
-          echo "TF_VAR_AKASH_ADDRESS=${{ steps.akash-setup.outputs.akash-address }}" >> $GITHUB_OUTPUT
       - name: Run Terrateam Action
         id: terrateam
         uses: terrateamio/action@v1
@@ -52,6 +43,3 @@ jobs:
         env:
           SECRETS_CONTEXT: ${{ toJson(secrets) }}
           VARIABLES_CONTEXT: ${{ toJson(vars) }}
-          AKASH_GPG_FINGERPRINT: ${{ steps.akash-setup.outputs.gpg-fingerprint }}
-          AKASH_GPG_KEY_ID: ${{ steps.akash-setup.outputs.gpg-key-id }}
-          AKASH_ADDRESS: ${{ steps.akash-setup.outputs.akash-address }}
