@@ -34,7 +34,8 @@ workflows:
       - type: init
         extra_args: [ '-backend-config=backend.hcl', '-migrate-state' ]
       - type: plan
-
+      - type: run
+        cmd: [ 'tofu','providers' ]
     apply:
       - type: env
         method: source
