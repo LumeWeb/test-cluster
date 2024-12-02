@@ -8,12 +8,14 @@ dirs:
   core:
     when_modified:
       file_patterns: [ "layers/core/*.tf" ]
-#    hooks:
-#      apply:
-#        post:
-#          - type: env
-#            method: source
-#            cmd: [ '$TERRATEAM_ROOT/scripts/export_public_outputs.sh' ]
+
+
+hooks:
+  apply:
+    post:
+      - type: env
+        method: source
+        cmd: [ '$TERRATEAM_ROOT/scripts/export_public_outputs.sh' ]
 
 workflows:
   - tag_query: ""
