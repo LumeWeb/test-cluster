@@ -19,7 +19,7 @@ hooks:
   all:
     pre:
       - type: run
-        cmd: ['mv', '${GITHUB_WORKSPACE}/provider-services', '/usr/local/bin']
+        cmd: ['mv', '${GITHUB_WORKSPACE}/bin/provider-services', '/usr/local/bin']
 workflows:
   - tag_query: ""
     plan:
