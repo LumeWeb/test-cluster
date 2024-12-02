@@ -36,4 +36,6 @@ else
     exit 1
 fi
 
+provider-services keys list
+
 exit 0
