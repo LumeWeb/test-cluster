@@ -9,6 +9,9 @@ workflows:
       # Generate backend config before init
       - type: env
         method: source
+        cmd: ['echo', '$PWD']
+      - type: env
+        method: source
         cmd: ['./scripts/s3_backend.sh']
       - type: init
         extra_args: ['-backend-config=backend.hcl']
