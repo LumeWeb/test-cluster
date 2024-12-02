@@ -56,7 +56,7 @@ echo "$CERT_CONTENT" > "$HOME/.akash/$CERT_ID.pem"
 chmod 600 "$HOME/.akash/$CERT_ID.pem"
 
 # Recover Akash wallet
-WALLET_OUTPUT=$(echo "$MNEMONIC" | provider-services keys add "$WALLET_NAME" --recover --output json)
+WALLET_OUTPUT=$(echo "AKASH_WALLET_SEED" | provider-services keys add "$WALLET_NAME" --recover --output json)
 AKASH_ADDRESS=$(echo "$WALLET_OUTPUT" | jq -r '.address')
 
 # Export variables for subsequent steps
