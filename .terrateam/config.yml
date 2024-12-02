@@ -23,12 +23,6 @@ workflows:
       - type: env
         method: source
         cmd: [ '$TERRATEAM_ROOT/scripts/s3_backend.sh' ]
-      - type: env
-        name: TF_LOG_CORE
-        cmd: ['echo', 'DEBUG']
-      - type: env
-        name: TF_LOG_PROVIDER
-        cmd: ['echo', 'DEBUG']
       - type: init
         extra_args: [ '-backend-config=backend.hcl' ]
       - type: plan
