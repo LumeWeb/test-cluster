@@ -2,10 +2,11 @@
 set -e
 
 # Environment variables required:
-# WALLET_NAME - Name of the Akash wallet
 # AKASH_WALLET_SEED - Mnemonic for wallet recovery
 # AKASH_CERT_ID - Certificate ID
 # AKASH_CERT_CONTENT - Certificate content
+
+WALLET_NAME="akash_deploy"
 
 # Install Akash provider services
 curl -sfL https://raw.githubusercontent.com/akash-network/provider/main/install.sh | bash
