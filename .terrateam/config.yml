@@ -1,3 +1,6 @@
+engine:
+  name: tofu
+  version: 1.8.6
 cost_estimation:
   enabled: false
 
