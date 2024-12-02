@@ -32,11 +32,8 @@ workflows:
         method: source
         cmd: [ '$TERRATEAM_ROOT/scripts/s3_backend.sh' ]
       - type: init
-        extra_args: [ '-backend-config=backend.hcl', '-migrate-state' ]
+        extra_args: [ '-backend-config=backend.hcl' ]
       - type: plan
-      - type: run
-        cmd: [ 'tofu','providers' ]
-        run_on: always
     apply:
       - type: env
         method: source
