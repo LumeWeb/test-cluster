@@ -20,15 +20,15 @@ workflows:
     plan:
       - type: env
         method: source
-        cmd: ['$TERRATEAM_ROOT/scripts/s3_backend.sh']
+        cmd: [ '$TERRATEAM_ROOT/scripts/s3_backend.sh' ]
       - type: init
-        extra_args: ['-backend-config=backend.hcl']
+        extra_args: [ '-backend-config=backend.hcl' ]
       - type: plan
 
     apply:
       - type: env
         method: source
-        cmd: ['$TERRATEAM_ROOT/scripts/s3_backend.sh']
+        cmd: [ '$TERRATEAM_ROOT/scripts/s3_backend.sh' ]
       - type: init
-        extra_args: ['-backend-config=backend.hcl']
+        extra_args: [ '-backend-config=backend.hcl' ]
       - type: apply
