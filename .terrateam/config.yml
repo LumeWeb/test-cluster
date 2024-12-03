@@ -1,23 +1,43 @@
+engine:
+  name: tofu
+  version: 1.8.4
+cost_estimation:
+  enabled: false
+
 dirs:
-  modules:
-    tags: [ aws, ec2 ]
+  core:
     when_modified:
-      file_patterns: [ "modules/*.tf" ]
+      file_patterns: [ "layers/core/*.tf" ]
+
+
+hooks:
+  all:
+    pre:
+      - type: run
+        cmd: ['$TERRATEAM_ROOT/scripts/install_pkgs.sh']
+      - type: run
+        cmd: ['$TERRATEAM_ROOT/scripts/setup_akash.sh']
+      - type: env
+        name: TF_VAR_allowed_providers
+        cmd: [ '$TERRATEAM_ROOT/scripts/akash_providers.sh' ]
+  apply:
+    post:
+      - type: env
+        method: source
+        cmd: [ '${TERRATEAM_ROOT}/scripts/export_public_outputs.sh' ]
 workflows:
   - tag_query: ""
     plan:
-      # Generate backend config before init
       - type: env
         method: source
-        cmd: ['./scripts/s3_backend.sh']
+        cmd: [ '$TERRATEAM_ROOT/scripts/s3_backend.sh' ]
       - type: init
-        extra_args: ['-backend-config=backend.hcl']
+        extra_args: [ '-backend-config=backend.hcl', '-migrate-state' ]
       - type: plan
-
     apply:
       - type: env
         method: source
-        cmd: ['./scripts/s3_backend.sh']
+        cmd: [ '$TERRATEAM_ROOT/scripts/s3_backend.sh' ]
       - type: init
-        extra_args: ['-backend-config=backend.hcl']
+        extra_args: [ '-backend-config=backend.hcl' ]
       - type: apply
