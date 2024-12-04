@@ -11,8 +11,8 @@ terraform {
 terraform {
   required_providers {
     cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "~> 4.0"
+      source = "cloudflare/cloudflare"
+      version = "5.0.0-alpha1"
     }
     akash = {
       source = "registry.terraform.io/lumeweb/akash"
