@@ -1,9 +1,12 @@
 #!/bin/bash
 
+# Get current directory name
+DIR_NAME=$(basename "$PWD")
+
 # Access environment variables/secrets
 BUCKET="${AWS_BUCKET}"
 REGION="us-east-1"
-KEY="test/terraform.tfstate"
+KEY="${DIR_NAME}/terraform.tfstate"
 
 # Generate backend config file
 cat > backend.hcl << EOF
