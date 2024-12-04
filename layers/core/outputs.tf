@@ -13,6 +13,11 @@ output "renterd_endpoint" {
   value = module.renterd.dns_fqdn
 }
 
+output "renterd_s3_endpoint" {
+  description = "Renterd service endpoint"
+  value = module.renterd.s3_fqdn
+}
+
 output "service_states" {
   description = "Current state of all services"
   value = {
