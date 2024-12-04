@@ -54,7 +54,7 @@ module "mysql" {
   }
 }
 
-/*module "renterd" {
+module "renterd" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/compute/renterd?ref=develop"
 
   allowed_providers = var.allowed_providers
@@ -70,7 +70,6 @@ module "mysql" {
   }
 
   network = {
-    http_port = 80
     enable_ssl = false
   }
 
@@ -100,4 +99,4 @@ module "mysql" {
   }
 
   depends_on = [module.mysql]
-}*/
+}
