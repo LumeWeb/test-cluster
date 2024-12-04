@@ -54,7 +54,7 @@ module "mysql" {
     }
   }
 }
-
+/*
 module "renterd" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/compute/renterd?ref=develop"
 
@@ -103,3 +103,4 @@ module "renterd" {
 
   depends_on = [module.mysql]
 }
+*/
