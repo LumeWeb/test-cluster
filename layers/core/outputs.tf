@@ -8,7 +8,7 @@ output "mysql_endpoint" {
   value = "${module.mysql.provider_host}:${module.mysql.port}"
 }
 
-output "renterd_endpoint" {
+/*output "renterd_endpoint" {
   description = "Renterd service endpoint"
   value = module.renterd.dns_fqdn
 }
@@ -26,3 +26,4 @@ output "service_states" {
     renterd = module.renterd.id
   }
 }
+*/
