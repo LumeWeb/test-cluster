@@ -14,4 +14,4 @@ fi
 pip3 install aiohttp --quiet
 
 # Run the RPC tester
-python3 scripts/rpc_tester.py "https://raw.githubusercontent.com/akash-network/net/main/mainnet/rpc-nodes.txt"
+python3 scripts/rpc_tester.py "https://raw.githubusercontent.com/akash-network/net/main/mainnet/rpc-nodes.txt" 2>/dev/null
