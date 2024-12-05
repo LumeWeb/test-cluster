@@ -26,7 +26,7 @@ module "etcd" {
   }
 }
 
-/*module "mysql" {
+module "mysql" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/mysql?ref=develop"
 
   name              = "mysql"
@@ -53,7 +53,7 @@ module "etcd" {
       class = "beta3"
     }
   }
-}*/
+}
 /*
 module "renterd" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/compute/renterd?ref=develop"
