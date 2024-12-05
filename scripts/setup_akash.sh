@@ -23,7 +23,7 @@ if ! command -v pip3 &> /dev/null; then
 fi
 
 # Install required packages if not present
-pip3 install aiohttp --quiet
+pip3 install aiohttp --quiet &> /dev/null
 
 # Run the RPC tester
 python3 scripts/bash_rpc_tester.py "https://raw.githubusercontent.com/akash-network/net/main/mainnet/rpc-nodes.txt"
