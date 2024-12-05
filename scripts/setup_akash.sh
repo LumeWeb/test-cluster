@@ -12,6 +12,22 @@ WALLET_NAME="akash_deploy"
 curl -sfL https://raw.githubusercontent.com/akash-network/provider/main/install.sh | bash
 cp ./bin/provider-services /usr/local/bin
 
+if ! command -v python3 &> /dev/null; then
+    echo "python3 is required but not installed" >&2
+    exit 1
+fi
+
+if ! command -v pip3 &> /dev/null; then
+    echo "pip3 is required but not installed" >&2
+    exit 1
+fi
+
+# Install required packages if not present
+pip3 install aiohttp --quiet
+
+# Run the RPC tester
+python3 bash_rpc_tester.py "https://raw.githubusercontent.com/akash-network/net/main/mainnet/rpc-nodes.txt"
+
 # Initialize GPG
 mkdir -p ~/.gnupg
 chmod 700 ~/.gnupg
