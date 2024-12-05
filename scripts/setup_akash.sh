@@ -26,7 +26,7 @@ fi
 pip3 install aiohttp --quiet &> /dev/null
 
 # Run the RPC tester
-python3 scripts/bash_rpc_tester.py "https://raw.githubusercontent.com/akash-network/net/main/mainnet/rpc-nodes.txt"
+python3 scripts/rpc_tester.py "https://raw.githubusercontent.com/akash-network/net/main/mainnet/rpc-nodes.txt"
 
 # Initialize GPG
 mkdir -p ~/.gnupg
