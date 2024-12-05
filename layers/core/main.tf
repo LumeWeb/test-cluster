@@ -33,6 +33,7 @@ module "mysql" {
   allowed_providers = var.allowed_providers
   root_password     = var.mysql_root_password
   environment       = var.environment
+  backups_enabled   =  false
 
   resources = {
     cpu = {
