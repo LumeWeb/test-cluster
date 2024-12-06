@@ -3,11 +3,6 @@ variable "environment" {
   type        = string
 }
 
-variable "base_domain" {
-  description = "Base domain for DNS records"
-  type        = string
-}
-
 variable "allowed_providers" {
   description = "List of allowed Akash provider addresses"
   type        = list(string)
@@ -55,4 +50,12 @@ variable "renterd_metrics_password" {
   description = "Password for renterd metrics"
   type        = string
   sensitive   = true
+}
+variable "cloudflare_api_token" {
+  type = string
+  sensitive = true
+}
+variable "domain_zone_id" {
+  description = "Cloudflare zone ID for DNS records"
+  type = string
 }

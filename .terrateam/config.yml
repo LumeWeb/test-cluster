@@ -8,6 +8,9 @@ dirs:
   core:
     when_modified:
       file_patterns: [ "layers/core/*.tf" ]
+  services:
+    when_modified:
+      file_patterns: [ "layers/services/*.tf" ]
 
 
 hooks:
