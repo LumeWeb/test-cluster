@@ -10,6 +10,7 @@ dirs:
       file_patterns: [ "layers/core/*.tf" ]
   services:
     when_modified:
+      depends_on: "dir:core"
       file_patterns: [ "layers/services/*.tf" ]
 
 
