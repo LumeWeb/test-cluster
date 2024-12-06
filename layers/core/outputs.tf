@@ -17,12 +17,3 @@ output "renterd_s3_endpoint" {
   description = "Renterd service endpoint"
   value = module.renterd.s3_fqdn
 }
-
-output "service_states" {
-  description = "Current state of all services"
-  value = {
-    etcd = module.etcd.deployment.state
-    mysql = module.mysql.deployment_id
-    renterd = module.renterd.id
-  }
-}
