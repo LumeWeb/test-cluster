@@ -1,6 +1,6 @@
 # MySQL Cluster
 module "mysql_cluster" {
-  source = "../../terraform-modules/modules/db/mysql-cluster"
+  source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/mysql-cluster?ref=develop"
 
   cluster_name    = "mysql-${var.environment}"
   environment     = var.environment
@@ -30,7 +30,7 @@ module "mysql_cluster" {
 
 # ProxySQL
 module "proxysql" {
-  source = "../../terraform-modules/modules/db/proxysql"
+  source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/proxysql?ref=develop"
 
   name        = "proxysql-${var.environment}"
   environment = var.environment
@@ -64,7 +64,7 @@ module "proxysql" {
 
 # Renterd Cluster
 module "renterd_cluster" {
-  source = "../../terraform-modules/modules/compute/renterd-cluster"
+  source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/compute/renterd-cluster?ref=develop"
 
   environment = var.environment
   base_domain = var.base_domain
