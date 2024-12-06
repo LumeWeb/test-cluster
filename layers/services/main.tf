@@ -71,6 +71,8 @@ module "renterd_cluster" {
   environment = "dev"
   base_domain = var.base_domain
 
+  backups_enabled = false
+
   # Authentication
   seed                = var.renterd_seed
   bus_api_password    = var.renterd_api_password
