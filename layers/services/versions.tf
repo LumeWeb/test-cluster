@@ -12,8 +12,8 @@ terraform {
       version = "5.0.0-alpha1"
     }
     akash = {
-      source  = "lumeweb/akash"
-      version = "~> 0.1.1"
+      source = "registry.terraform.io/lumeweb/akash"
+      version = "0.1.1"
     }
   }
   required_version = ">= 1.0"
