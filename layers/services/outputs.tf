@@ -21,12 +21,10 @@ output "renterd" {
   value = {
     bus = {
       endpoint = module.renterd_cluster.bus.dns_fqdn
-      state   = module.renterd_cluster.bus.state
     }
     workers = module.renterd_cluster.workers
     autopilot = {
       endpoint = module.renterd_cluster.autopilot.dns_fqdn
-      state   = module.renterd_cluster.autopilot.state
     }
   }
 }
