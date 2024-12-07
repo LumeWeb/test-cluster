@@ -23,7 +23,21 @@ provider "cloudflare" {
   api_token = var.cloudflare_api_token
 }
 
-module "remote_states" {
+/*module "remote_states" {
   source      = "../../modules/remote-state"
   component   = "core"
+}
+*/
+
+data "terraform_remote_state" "remote_states" {
+  backend = "s3"
+  config = {
+    bucket                      = var.aws_bucket
+    key                         = "core/terraform.tfstate"
+    skip_credentials_validation = true
+    skip_region_validation     = true
+    skip_metadata_api_check    = true
+    skip_s3_checksum          = true
+    force_path_style          = true
+  }
 }
