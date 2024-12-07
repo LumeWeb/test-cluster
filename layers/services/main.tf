@@ -7,7 +7,7 @@ module "mysql_cluster" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/mysql-cluster?ref=develop"
 
   environment  = var.environment
-  slave_count = 1  # 1 replica = 2 total nodes
+  node_count = 2
 
   backups_enabled = false
 
@@ -20,13 +20,7 @@ module "mysql_cluster" {
   etc_password = data.terraform_remote_state.remote_states.outputs.etcd_password
 
   # Resource Configuration
-  master_resources = {
-    cpu_units    = 2
-    memory_size  = 4
-    storage_size = 20
-  }
-
-  slave_resources = {
+ node_resources = {
     cpu_units    = 2
     memory_size  = 4
     storage_size = 20
