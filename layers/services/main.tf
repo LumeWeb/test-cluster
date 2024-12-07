@@ -3,7 +3,7 @@ locals {
 }
 
 # MySQL Cluster
-/*module "mysql_cluster" {
+module "mysql_cluster" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/mysql-cluster?ref=develop"
 
   environment  = var.environment
@@ -27,7 +27,7 @@ locals {
   }
 
   allowed_providers = var.allowed_providers
-}*/
+}
 
 # ProxySQL
 module "proxysql" {
@@ -66,7 +66,7 @@ module "proxysql" {
 
   allowed_providers = var.allowed_providers
 
- // depends_on = [module.mysql_cluster]
+  depends_on = [module.mysql_cluster]
 }
 
 # Renterd Cluster
