@@ -7,7 +7,7 @@ module "mysql_cluster" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/mysql-cluster?ref=develop"
 
   environment  = var.environment
-  replica_count = 1  # 1 replica = 2 total nodes
+  slave_count = 1  # 1 replica = 2 total nodes
 
   backups_enabled = false
 
