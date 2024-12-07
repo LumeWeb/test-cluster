@@ -2,7 +2,7 @@ output "mysql_cluster" {
   description = "MySQL cluster details"
   value = {
     master   = module.mysql_cluster.master
-    replicas = module.mysql_cluster.replicas
+    replicas = module.mysql_cluster.slaves
     info     = module.mysql_cluster.cluster_info
   }
 }
