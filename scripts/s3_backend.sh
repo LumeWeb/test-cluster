@@ -14,3 +14,5 @@ bucket                      = "${BUCKET}"
 region                      = "${REGION}"
 key                         = "${KEY}"
 EOF
+
+export TF_VAR_aws_bucket="${BUCKET}"
