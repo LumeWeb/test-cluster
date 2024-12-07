@@ -22,9 +22,6 @@ hooks:
       - type: env
         name: TF_VAR_allowed_providers
         cmd: [ '$TERRATEAM_ROOT/scripts/akash_providers.sh' ]
-      - type: env
-        name: TF_VAR_aws_bucket
-        cmd: [ 'echo', '$AWS_BUCKET' ]
 
 workflows:
   - tag_query: ""
