@@ -9,6 +9,7 @@ REGION="us-east-1"
 KEY="${DIR_NAME}/terraform.tfstate"
 
 export TF_VAR_aws_bucket="${BUCKET}"
+export AWS_REGION="${REGION}"
 
 # Generate backend config file
 cat > backend.hcl << EOF
