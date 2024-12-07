@@ -82,8 +82,8 @@ module "renterd_cluster" {
   # MySQL Configuration via ProxySQL
   database = {
     type           = "mysql"
-    mysql_uri = format("%s:%d", module.proxysql.provider_host, module.proxysql.port)
-    mysql_password = var.mysql_root_password
+    uri = format("%s:%d", module.proxysql.provider_host, module.proxysql.port)
+    password = var.mysql_root_password
   }
 
   # Resource Configuration
