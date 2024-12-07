@@ -15,7 +15,7 @@ module "mysql_cluster" {
   repl_password = var.mysql_repl_password
 
   # ETCD Configuration
-  etc_endpoints = [module.remote_states.remote_state.outputs.etcd_endpoint]
+  endpoints = [data.terraform_remote_state.remote_states.outputs.etcd_endpoint]
 
   # Resource Configuration
   master_resources = {
