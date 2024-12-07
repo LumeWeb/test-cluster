@@ -39,6 +39,3 @@ workflows:
       - type: init
         extra_args: [ '-backend-config=backend.hcl' ]
       - type: apply
-      - type: env
-        method: source
-        cmd: [ '${TERRATEAM_ROOT}/scripts/export_public_outputs.sh' ]
