@@ -13,7 +13,7 @@ module "mysql_cluster" {
   repl_password = var.mysql_repl_password
 
   # ETCD Configuration
-  etc_endpoints = [var.etcd_endpoint]
+  etc_endpoints = [module.remote_states.remote_state.outputs.etcd_endpoint]
 
   # Resource Configuration
   master_resources = {
@@ -41,7 +41,7 @@ module "proxysql" {
 
   # Connect to ETCD
   etcd = {
-    endpoints = [var.etcd_endpoint]
+    endpoints = [module.remote_states.remote_state.outputs.etcd_endpoint]
   }
 
   # Resource Configuration

@@ -9,11 +9,6 @@ variable "allowed_providers" {
   type        = list(string)
 }
 
-variable "etcd_endpoint" {
-  description = "ETCD endpoint from core layer"
-  type        = string
-}
-
 # MySQL Configuration
 variable "mysql_root_password" {
   description = "MySQL root password"

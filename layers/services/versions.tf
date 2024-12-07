@@ -22,3 +22,8 @@ terraform {
 provider "cloudflare" {
   api_token = var.cloudflare_api_token
 }
+
+module "remote_states" {
+  source      = "../../modules/remote-state"
+  component   = "core"
+}
