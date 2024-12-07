@@ -3,6 +3,12 @@ output "etcd_endpoint" {
   value = module.etcd.service.endpoints[0]
 }
 
+output "etcd_password" {
+  description = "ETCD service password"
+  value = var.etcd_root_password
+  sensitive = true
+}
+
 output "mysql_endpoint" {
   description = "MySQL service endpoint"
   value = "${module.mysql.provider_host}:${module.mysql.port}"
