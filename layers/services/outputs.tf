@@ -1,8 +1,7 @@
 output "mysql_cluster" {
   description = "MySQL cluster details"
   value = {
-    master   = module.mysql_cluster.master
-    replicas = module.mysql_cluster.slaves
+    nodes   = module.mysql_cluster.nodes
     info     = module.mysql_cluster.cluster_info
   }
 }
