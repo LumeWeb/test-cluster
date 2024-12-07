@@ -43,7 +43,7 @@ module "proxysql" {
 
   # Connect to ETCD
   etcd = {
-    endpoints = [module.remote_states.remote_state.outputs.etcd_endpoint]
+    endpoints = [data.terraform_remote_state.remote_states.outputs.etcd_endpoint]
   }
 
   # Resource Configuration

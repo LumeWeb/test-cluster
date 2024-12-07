@@ -55,3 +55,7 @@ variable "domain_zone_id" {
   description = "Cloudflare zone ID for DNS records"
   type = string
 }
+variable "aws_bucket" {
+  description = "AWS S3 bucket for backups"
+  type = string
+}
