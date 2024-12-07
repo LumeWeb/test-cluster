@@ -9,6 +9,8 @@ module "mysql_cluster" {
   environment  = var.environment
   replica_count = 1  # 1 replica = 2 total nodes
 
+  backups_enabled = false
+
   root_password = var.mysql_root_password
   repl_password = var.mysql_repl_password
 
@@ -70,8 +72,6 @@ module "renterd_cluster" {
 
   environment = "dev"
   base_domain = var.base_domain
-
-  backups_enabled = false
 
   # Authentication
   seed                = var.renterd_seed
