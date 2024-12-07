@@ -1,11 +1,11 @@
-output "mysql_cluster" {
+/*output "mysql_cluster" {
   description = "MySQL cluster details"
   value = {
     nodes   = module.mysql_cluster.nodes
     info     = module.mysql_cluster.cluster_info
   }
 }
-
+*/
 output "proxysql" {
   description = "ProxySQL details"
   value = {
