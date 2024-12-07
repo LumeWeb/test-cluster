@@ -34,6 +34,7 @@ module "proxysql" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/db/proxysql?ref=develop"
 
   environment = var.environment
+  backup_enabled = false
 
   admin_password = var.proxysql_admin_password
 
