@@ -49,6 +49,11 @@ module "proxysql" {
     password  = data.terraform_remote_state.remote_states.outputs.etcd_password
   }
 
+  mysql = {
+    repl_user = "repl"
+    repl_password = var.mysql_repl_password
+  }
+
   # Resource Configuration
   resources = {
     cpu = {
