@@ -71,7 +71,7 @@ module "renterd_cluster" {
   source = "git::https://github.com/LumeWeb/terraform-modules.git//modules/compute/renterd-cluster?ref=develop"
 
   environment = "dev"
-  base_domain = var.base_domain
+  base_domain = local.base_domain
 
   # Authentication
   seed                = var.renterd_seed
