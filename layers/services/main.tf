@@ -22,7 +22,7 @@ module "mysql_cluster" {
     storage_size = 20
   }
 
-  replica_resources = {
+  slave_resources = {
     cpu_units    = 2
     memory_size  = 4
     storage_size = 20
