@@ -1,15 +1,30 @@
 projects:
-  - name: test-cluster
-    dir: environments/test
-    workflow: test-env
+  - name: services
+    dir: layers/services
     opentofu: true
+    depends_on: ["core"]
+    include_patterns: ["../core/**"]
+  - name: core
+    dir: layers/core
+    opentofu: true
+
 workflows:
-  test-env:
-    env_vars:
-      state:
-        - name: AWS_ACCESS_KEY_ID
-          value_from: AWS_ACCESS_KEY_ID
-        - name: AWS_SECRET_ACCESS_KEY
-          value_from: AWS_SECRET_ACCESS_KEY
-        - name: AWS_ENDPOINT_URL_S3
-          value_from: AWS_ENDPOINT_URL
+  default:
+    plan:
+      steps:
+        - run: "./scripts/s3_backend.sh"
+          shell: bash
+        - init:
+            extra_args: ["-backend-config=backend.hcl", "-migrate-state"]
+        - plan
+    apply:
+      steps:
+        - run: "./scripts/s3_backend.sh"
+          shell: bash
+        - init:
+            extra_args: ["-backend-config=backend.hcl"]
+        - apply
+    workflow_configuration:
+      on_pull_request_pushed: ["digger plan"]
+      on_pull_request_closed: ["digger unlock"] 
+      on_commit_to_default: ["digger unlock"]
