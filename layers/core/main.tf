@@ -77,8 +77,8 @@ module "renterd" {
   }
 
   database = {
-    type           = "mysql"
-    uri      = format("%s:%d", module.mysql.provider_host, module.mysql.port)
+    type     = "mysql"
+    uri = format("%s:%d", module.mysql.provider_host, module.mysql.port)
     password = var.mysql_root_password
   }
 
