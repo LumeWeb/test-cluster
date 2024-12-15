@@ -10,16 +10,40 @@ projects:
 
 workflows:
   default:
+    env_vars:
+      state:
+        - name: AWS_REGION
+          value: "us-east-1"
+        # These would be set from GitHub secrets or other secure source
+        - name: AWS_BUCKET
+          value_from: AWS_BUCKET
+      commands:
+        - name: TF_VAR_aws_bucket
+          value_from: AWS_BUCKET
+        - name: AWS_REGION
+          value: "us-east-1"
     plan:
       steps:
-        - run: "${GITHUB_WORKSPACE}/scripts/s3_backend.sh"
+        - run: |
+            DIR_NAME=$(basename "$PWD")
+            cat > backend.hcl << EOF
+            bucket = "${AWS_BUCKET}"
+            region = "${AWS_REGION}"
+            key    = "${DIR_NAME}/terraform.tfstate"
+            EOF
           shell: bash
         - init:
             extra_args: ["-backend-config=backend.hcl", "-migrate-state"]
         - plan
     apply:
       steps:
-        - run: "./scripts/s3_backend.sh"
+        - run: |
+            DIR_NAME=$(basename "$PWD")
+            cat > backend.hcl << EOF
+            bucket = "${AWS_BUCKET}"
+            region = "${AWS_REGION}"
+            key    = "${DIR_NAME}/terraform.tfstate"
+            EOF
           shell: bash
         - init:
             extra_args: ["-backend-config=backend.hcl"]
