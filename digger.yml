@@ -21,14 +21,10 @@ workflows:
         - run: |
             DIR_NAME=$(basename "$PWD")
             cat > backend.hcl << EOF
-            bucket = "${AWS_BUCKET}"
-            region = "${AWS_REGION}"
-            key    = "${DIR_NAME}/terraform.tfstate"
+            bucket = "$AWS_BUCKET"
+            region = "$AWS_REGION"
+            key    = "$DIR_NAME/terraform.tfstate"
             EOF
-          shell: bash
-        - run: |
-            cat backend.hcl
-            env
           shell: bash
         - init:
             extra_args: ["-backend-config=backend.hcl", "-migrate-state"]
