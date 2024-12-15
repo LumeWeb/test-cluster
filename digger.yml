@@ -12,7 +12,7 @@ workflows:
   default:
     plan:
       steps:
-        - run: "./scripts/s3_backend.sh"
+        - run: "${GITHUB_WORKSPACE}/scripts/s3_backend.sh"
           shell: bash
         - init:
             extra_args: ["-backend-config=backend.hcl", "-migrate-state"]
