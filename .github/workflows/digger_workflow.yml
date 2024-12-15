@@ -35,7 +35,7 @@ jobs:
         run: |
           PROVIDERS=$(yq eval '.providers[].address' config/akash-providers.yaml | jq -R -s -c 'split("\n")[:-1]')
           echo "provider_list=${PROVIDERS}" >> $GITHUB_OUTPUT
-      - uses: LumeWeb/digger-action@env
+      - uses: LumeWeb/digger-action@env-debug
         with:
           digger-spec: ${{ inputs.spec }}
           aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
