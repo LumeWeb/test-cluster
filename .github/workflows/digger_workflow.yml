@@ -51,5 +51,3 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_ENDPOINT_URL: ${{ secrets.AWS_ENDPOINT_URL }}
           AWS_REGION: 'us-east-1'
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}
-          VARIABLES_CONTEXT: ${{ toJson(vars) }}
