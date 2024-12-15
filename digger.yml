@@ -31,6 +31,7 @@ workflows:
             echo "AWS_REGION: ${AWS_REGION}"
             echo "AWS_BUCKET: ${AWS_BUCKET}"
             echo "TF_VAR_aws_bucket: ${TF_VAR_aws_bucket}"
+            echo "TF_VAR_AWS_BUCKET: ${TF_VAR_AWS_BUCKET}"
           shell: bash
         - init:
             extra_args: ["-backend-config=backend.hcl", "-migrate-state"]
