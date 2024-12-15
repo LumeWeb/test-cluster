@@ -12,6 +12,9 @@ workflows:
   default:
     plan:
       steps:
+        - run: |
+            pwd
+            ls -la ./scripts/
         - run: "./scripts/s3_backend.sh"
           shell: bash
         - init:
