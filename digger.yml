@@ -16,11 +16,6 @@ workflows:
           value_from: AWS_BUCKET
         - name: AWS_REGION
           value: "us-east-1"
-      commands:
-        - name: TF_VAR_aws_bucket
-          value_from: AWS_BUCKET
-        - name: AWS_REGION
-          value: "us-east-1"
     plan:
       steps:
         - run: |
