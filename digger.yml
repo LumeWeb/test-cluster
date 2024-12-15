@@ -12,11 +12,10 @@ workflows:
   default:
     env_vars:
       state:
+        - name: TF_VAR_aws_bucket
+          value_from: AWS_BUCKET
         - name: AWS_REGION
           value: "us-east-1"
-        # These would be set from GitHub secrets or other secure source
-        - name: AWS_BUCKET
-          value_from: AWS_BUCKET
       commands:
         - name: TF_VAR_aws_bucket
           value_from: AWS_BUCKET
