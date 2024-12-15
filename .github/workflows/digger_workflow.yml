@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: lumeweb/akash-action@v0.1.2
+      - uses: lumeweb/akash-action@v0.1.3
         with:
           mnemonic: ${{ secrets.AKASH_WALLET_SEED }}
           cert-content: ${{ secrets.AKASH_CERT_CONTENT }}
