@@ -44,6 +44,8 @@ jobs:
           aws-region: 'us-east-1'
           aws-bucket: '${{ secrets.AWS_BUCKET }}'
           digger-version: 'v0.6.62'
+          secrets-context: ${{ toJson(secrets) }}
+          variables-context: ${{ toJson(vars) }}
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
