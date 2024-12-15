@@ -26,6 +26,12 @@ workflows:
             key    = "${DIR_NAME}/terraform.tfstate"
             EOF
           shell: bash
+        - run: |
+            cat backend.hcl
+            echo "AWS_REGION: ${AWS_REGION}"
+            echo "AWS_BUCKET: ${AWS_BUCKET}"
+            echo "TF_VAR_aws_bucket: ${TF_VAR_aws_bucket}"
+          shell: bash
         - init:
             extra_args: ["-backend-config=backend.hcl", "-migrate-state"]
         - plan
